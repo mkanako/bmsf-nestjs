@@ -16,13 +16,27 @@
     "skipLibCheck": true,
     "strict": true,
     "paths": {
-      "@/*": ["src/*"],
-      "@root/*": ["*"],
+      "@root/*": [
+        "*"
+      ],
+      "@libs/common": [
+        "libs/common/src"
+      ],
+      "@libs/common/*": [
+        "libs/common/src/*"
+      ],
+      "@libs/config": [
+        "libs/config/src"
+      ],
+      "@libs/config/*": [
+        "libs/config/src/*"
+      ],
+      "@libs/database": [
+        "libs/database/src"
+      ],
+      "@libs/database/*": [
+        "libs/database/src/*"
+      ]
     }
   },
-  "compileOnSave": false,
-  "include": [
-    "src/**/*",
-    "tests/**/*",
-  ]
 }

@@ -1,9 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 import { Exclude } from 'class-transformer'
-import { CreateTimestampColumn, UpdateTimestampColumn } from '@/decorators/typeorm-timestamp-column'
+import { CreateTimestampColumn, UpdateTimestampColumn } from '@libs/common/decorators/typeorm-timestamp-column'
 
 @Entity('admin_users')
-export class AccountEntity {
+export class AdminAccount {
   @PrimaryGeneratedColumn()
   id!: number
 
