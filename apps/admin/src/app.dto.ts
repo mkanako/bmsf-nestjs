@@ -1,13 +1,20 @@
-import { IsNotEmpty, IsDefined, IsString } from 'class-validator'
+import { IsNotEmpty, MinLength } from 'class-validator'
+import { Match } from '@common/decorators/class-validator-match.decorator'
 
 export class LoginDto {
-  @IsDefined()
   @IsNotEmpty()
-  @IsString()
   username: string
 
-  @IsDefined()
   @IsNotEmpty()
-  @IsString()
   password: string
+}
+
+export class ChangePasswordDto {
+  @MinLength(6)
+  password: string
+
+  @Match('password')
+  @MinLength(6)
+  // eslint-disable-next-line camelcase
+  password_confirmation: string
 }

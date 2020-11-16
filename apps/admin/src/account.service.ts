@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
+import { HashService } from '@common/hash'
 import { AdminAccount as Account } from '@entities'
 import { Request } from './auth/interfaces'
 
@@ -8,6 +9,7 @@ import { Request } from './auth/interfaces'
 export class AccountService {
   constructor (
     @InjectRepository(Account) private account: Repository<Account>,
+    private readonly hashService: HashService,
   ) { }
 
   async findOne (username: string) {
@@ -15,6 +17,14 @@ export class AccountService {
       select: ['id', 'username', 'password'],
       where: { username },
     })
+  }
+
+  async changePassword (id: number, username: string, password: string) {
+    const result = await this.account.update({ id, username }, { password: this.hashService.make(password) })
+    if (result.affected) {
+      return result.affected > 0
+    }
+    return false
   }
 
   async getByPayload (payload: any) {

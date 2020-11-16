@@ -1,11 +1,12 @@
 import { Controller, Get, Post, Req, Body } from '@nestjs/common'
-import { Request, Response } from 'express'
+import { Response } from 'express'
 import { succ, err } from '@common/utils/resHelper'
 import { excludeGuard } from '@common/decorators/exclude-guard.decorator'
 import { Res } from '@common/decorators/res.decorator'
 import { AccountService } from './account.service'
 import { AuthService } from './auth'
-import { LoginDto } from './app.dto'
+import { Request } from './auth/interfaces'
+import { LoginDto, ChangePasswordDto } from './app.dto'
 
 @Controller()
 export class AppController {
@@ -25,6 +26,11 @@ export class AppController {
   sysInfo (@Req() req: Request) {
     console.log(req.user)
     return succ(this.getSysInfo())
+  }
+
+  @Post('changePassword')
+  async changePassword (@Body() param: ChangePasswordDto, @Req() req: Request) {
+    return succ(await this.accountService.changePassword(req.user.id, req.user.username, param.password))
   }
 
   @excludeGuard()
