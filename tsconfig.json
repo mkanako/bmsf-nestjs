@@ -15,28 +15,23 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
+    "strictPropertyInitialization":false,
     "paths": {
       "@root/*": [
         "*"
       ],
-      "@libs/common": [
+      "@common": [
         "libs/common/src"
       ],
-      "@libs/common/*": [
+      "@common/*": [
         "libs/common/src/*"
       ],
-      "@libs/config": [
-        "libs/config/src"
+      "@entities": [
+        "libs/entities/src"
       ],
-      "@libs/config/*": [
-        "libs/config/src/*"
+      "@entities/*": [
+        "libs/entities/src/*"
       ],
-      "@libs/database": [
-        "libs/database/src"
-      ],
-      "@libs/database/*": [
-        "libs/database/src/*"
-      ]
     }
   },
 }

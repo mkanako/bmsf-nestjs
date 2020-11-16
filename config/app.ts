@@ -12,8 +12,8 @@ if (!Object.values(NODE_ENVS).includes(env as NODE_ENVS)) {
 
 export default () => ({
   port: parseInt(process.env.APP_PORT || '8000'),
+  env,
   isDev: Object.is(env, NODE_ENVS.DEVELOPMENT),
   isProd: Object.is(env, NODE_ENVS.PRODUCTION),
   isTest: Object.is(env, NODE_ENVS.TEST),
-  env,
 })

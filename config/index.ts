@@ -1,7 +1,9 @@
 import app from './app'
 import database from './database'
+import jwt from './jwt'
 
-export const configs = {
+export const config = {
   app,
   database,
+  jwt,
 }

@@ -1,4 +1,4 @@
-export function succ (data = '', msg = 'success', code = 0) {
+export function succ (data: any = '', msg = 'success', code = 0) {
   return {
     data,
     msg,

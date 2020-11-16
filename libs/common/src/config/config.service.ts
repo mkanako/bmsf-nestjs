@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { ConfigService as NestConfigService } from '@nestjs/config'
-import { CONFIGS_TYPE } from './configs'
+import { CONFIGS_TYPE } from './config-data'
 
 @Injectable()
 export class ConfigService extends NestConfigService {

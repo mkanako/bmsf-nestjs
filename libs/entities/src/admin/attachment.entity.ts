@@ -1,29 +1,29 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
-import { CreateTimestampColumn, UpdateTimestampColumn } from '@libs/common/decorators/typeorm-timestamp-column'
+import { CreateTimestampColumn, UpdateTimestampColumn } from '@common/decorators/typeorm-timestamp-column'
 
 @Entity('admin_attachments')
 export class AdminAttachment {
   @PrimaryGeneratedColumn()
-  id!: number
+  id: number
 
   @Column({ length: 255 })
-  filename!: string
+  filename: string
 
   @Column({ length: 255 })
-  path!: string
+  path: string
 
   @Column({ length: 20 })
-  type!: string
+  type: string
 
   @Column({
     default: 0,
     unsigned: true,
   })
-  uid!: number
+  uid: number
 
   @CreateTimestampColumn()
-  createdAt!: Date
+  createdAt: Date
 
   @UpdateTimestampColumn()
-  updatedAt!: Date
+  updatedAt: Date
 }

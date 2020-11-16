@@ -1,25 +1,25 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 import { Exclude } from 'class-transformer'
-import { CreateTimestampColumn, UpdateTimestampColumn } from '@libs/common/decorators/typeorm-timestamp-column'
+import { CreateTimestampColumn, UpdateTimestampColumn } from '@common/decorators/typeorm-timestamp-column'
 
 @Entity('admin_users')
 export class AdminAccount {
   @PrimaryGeneratedColumn()
-  id!: number
+  id: number
 
   @Column({
     length: 30,
     unique: true,
   })
-  username!: string
+  username: string
 
   @Exclude()
   @Column({ length: 60 })
-  password!: string
+  password: string
 
   @CreateTimestampColumn()
-  createdAt!: Date
+  createdAt: Date
 
   @UpdateTimestampColumn()
-  updatedAt!: Date
+  updatedAt: Date
 }

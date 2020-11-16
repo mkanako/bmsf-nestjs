@@ -1,10 +1,8 @@
 import { Module } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { ConfigService } from '@libs/config'
+import { ConfigService } from '@common/config'
 import { DatabaseService } from './database.service'
-import * as entities from './entities'
-
-type ENTITIES_TYPE = keyof typeof entities
+import * as entities from '@entities'
 
 @Module({
   imports: [
@@ -24,8 +22,10 @@ type ENTITIES_TYPE = keyof typeof entities
   exports: [DatabaseService],
 })
 export class DatabaseModule {
-  static forFeature (entity: ENTITIES_TYPE|ENTITIES_TYPE[]) {
-    const EntitiesSchema = Array.isArray(entity) ? entity : [entity]
-    return TypeOrmModule.forFeature(EntitiesSchema.map(item => entities[item]))
+  static forFeature (entityKeys: (keyof typeof entities)[]) {
+    return Object.assign(
+      TypeOrmModule.forFeature(entityKeys.map(item => entities[item])),
+      { global: true },
+    )
   }
 }

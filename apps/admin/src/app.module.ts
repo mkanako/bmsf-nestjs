@@ -1,17 +1,25 @@
 import { Module } from '@nestjs/common'
-import { ConfigModule } from '@libs/config'
-import { DatabaseModule } from '@libs/database'
+import { ConfigModule } from '@common/config'
+import { DatabaseModule } from '@common/database'
+import { AuthModule, AuthGuard } from './auth'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { BaseModule } from './base/base.module'
+import { AccountService } from './account.service'
+import { AttachmentModule } from './attachment/attachment.module'
 
 @Module({
   imports: [
     ConfigModule,
     DatabaseModule,
-    BaseModule,
+    DatabaseModule.forFeature(['AdminAccount']),
+    AuthModule,
+    AttachmentModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AccountService,
+    AppService,
+    AuthGuard,
+  ],
 })
 export class AppModule {}
