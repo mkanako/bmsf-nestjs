@@ -10,7 +10,7 @@ import { AttachmentModule } from './attachment/attachment.module'
 
 @Module({
   imports: [
-    ConfigModule,
+    ConfigModule.forRoot(),
     DatabaseModule,
     DatabaseModule.forFeature(['AdminAccount']),
     HashModule,
