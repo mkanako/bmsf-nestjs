@@ -9,7 +9,7 @@ export class BcryptHasher implements Hasher {
   private rounds = 10
 
   constructor (options?: BcryptOptions) {
-    if (options && options.rounds) {
+    if (options?.rounds) {
       this.rounds = options.rounds
     }
   }
