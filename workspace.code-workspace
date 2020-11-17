@@ -1,0 +1,12 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.workspaceSymbols.scope": "currentProject",
+    "typescript.tsserver.useSeparateSyntaxServer": true
+  }
+}
