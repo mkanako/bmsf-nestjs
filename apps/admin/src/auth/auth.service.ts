@@ -12,8 +12,8 @@ export class AuthService {
     private readonly accountService: AccountService,
   ) {}
 
-  generateToken (payload: Payload) {
-    return 'Bearer ' + this.jwtService.sign(payload)
+  generateToken (sub: number, username: string) {
+    return 'Bearer ' + this.jwtService.sign({ sub, username })
   }
 
   authHeader (param: string|Payload) {
@@ -21,7 +21,7 @@ export class AuthService {
     if (typeof param === 'string') {
       token = param
     } else {
-      token = this.generateToken(param)
+      token = this.generateToken(param.sub, param.username)
     }
     return { Authorization: token }
   }
@@ -29,11 +29,7 @@ export class AuthService {
   async validate (username: string, password: string) {
     const user = await this.accountService.findOne(username)
     if (user && this.hashService.check(password, user.password)) {
-      const payload = {
-        sub: user.id,
-        username: user.username,
-      }
-      return this.generateToken(payload)
+      return this.generateToken(user.id, user.username)
     }
     return false
   }
