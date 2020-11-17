@@ -1,5 +1,5 @@
 import { registerAs } from '@nestjs/config'
-import { config } from '@root/config'
+import { config } from '@config'
 
 type TYPEOF_CONFIGS = typeof config
 

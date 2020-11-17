@@ -17,20 +17,23 @@
     "strict": true,
     "strictPropertyInitialization":false,
     "paths": {
-      "@root/*": [
-        "*"
+      "@config":[
+        "src/config"
+      ],
+      "@config/*":[
+        "src/config/*"
       ],
       "@common": [
-        "libs/common/src"
+        "../../libs/common/src"
       ],
       "@common/*": [
-        "libs/common/src/*"
+        "../../libs/common/src/*"
       ],
       "@entities": [
-        "libs/entities/src"
+        "../../libs/entities/src"
       ],
       "@entities/*": [
-        "libs/entities/src/*"
+        "../../libs/entities/src/*"
       ],
     }
   },
