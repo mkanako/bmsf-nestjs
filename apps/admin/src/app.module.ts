@@ -11,8 +11,7 @@ import { AttachmentModule } from './attachment/attachment.module'
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    DatabaseModule,
-    DatabaseModule.forFeature(['AdminAccount']),
+    DatabaseModule.forRoot(['AdminAccount', 'AdminAttachment']),
     HashModule,
     AuthModule,
     AttachmentModule,
