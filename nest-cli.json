@@ -26,13 +26,13 @@
         "tsConfigPath": "libs/common/tsconfig.lib.json"
       }
     },
-    "database": {
+    "entities": {
       "type": "library",
-      "root": "libs/database",
+      "root": "libs/entities",
       "entryFile": "index",
-      "sourceRoot": "libs/database/src",
+      "sourceRoot": "libs/entities/src",
       "compilerOptions": {
-        "tsConfigPath": "libs/database/tsconfig.lib.json"
+        "tsConfigPath": "libs/entities/tsconfig.lib.json"
       }
     }
   }
