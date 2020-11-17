@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
-    "baseUrl": "./",
+    "baseUrl": "./apps/admin",
     "module": "commonjs",
     "target": "ESNext",
     "sourceMap": true,
