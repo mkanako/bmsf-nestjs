@@ -13,7 +13,7 @@
     "start:dev": "NODE_ENV=development nest start --watch",
     "start:debug": "NODE_ENV=development nest start --debug --watch",
     "start:prod": "NODE_ENV=production node dist/main",
-    "lint": "eslint \"{apps,config,libs}/**/*.ts\" --fix",
+    "lint": "eslint \"{apps,libs}/**/*.ts\" --fix",
     "test": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch",
     "test:cov": "NODE_ENV=test jest --coverage",
