@@ -8,7 +8,9 @@ async function bootstrap () {
   const app = await NestFactory.create(AppModule)
   app.setGlobalPrefix('/admin')
   app.useGlobalGuards(app.get(AuthGuard))
-  app.useGlobalPipes(new ValidationPipe())
+  app.useGlobalPipes(new ValidationPipe({
+    transform: true,
+  }))
 
   const appConfig = app.get(ConfigService).get('app')
 
