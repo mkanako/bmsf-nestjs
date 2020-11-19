@@ -32,6 +32,9 @@ module.exports = {
     '@typescript-eslint/space-infix-ops': ['error', { int32Hint: false }],
     '@typescript-eslint/type-annotation-spacing': 'error',
     '@typescript-eslint/ban-types': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
+    'no-undef': 'off',
   },
   settings: {
     'import/extensions': [
