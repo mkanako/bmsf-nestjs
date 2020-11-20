@@ -3,6 +3,7 @@ import { Response } from 'express'
 import { succ, err } from '@common/utils/resHelper'
 import { excludeGuard } from '@common/decorators/exclude-guard.decorator'
 import { Res } from '@common/decorators/res.decorator'
+import { StoragerService } from '@common/storagers'
 import { AccountService } from './account.service'
 import { AuthService } from './auth'
 import { Request } from './auth/interfaces'
@@ -13,11 +14,12 @@ export class AppController {
   constructor (
     private readonly authService: AuthService,
     private readonly accountService: AccountService,
+    private readonly storagerService: StoragerService,
   ) {}
 
   private getSysInfo () {
     return {
-      attachmentUrl: '/',
+      attachmentUrl: this.storagerService.getUrl(),
       routeList: ['*'],
     }
   }
