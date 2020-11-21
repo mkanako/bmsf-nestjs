@@ -10,7 +10,7 @@
     "prebuild": "rimraf dist/**",
     "build": "NODE_ENV=production nest build",
     "start": "NODE_ENV=development nest start",
-    "start:dev": "NODE_ENV=development nest start --watch",
+    "start:dev": "NODE_OPTIONS=--enable-source-maps NODE_ENV=development nest start --watch",
     "start:debug": "NODE_ENV=development nest start --debug --watch",
     "start:prod": "NODE_ENV=production node dist/main",
     "lint": "eslint \"{apps,libs}/**/*.ts\" --fix",

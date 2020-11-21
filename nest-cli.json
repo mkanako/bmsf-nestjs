@@ -5,6 +5,7 @@
   "root": "apps/admin",
   "compilerOptions": {
     "webpack": true,
+    "webpackConfigPath":"./webpack.config.js",
     "tsConfigPath": "apps/admin/tsconfig.app.json"
   },
   "projects": {
