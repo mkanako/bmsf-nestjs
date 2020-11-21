@@ -47,7 +47,7 @@ export class AppController {
   }
 
   @excludeGuard()
-  @Post('logout')
+  @Get('logout')
   logout () {
     return succ()
   }
