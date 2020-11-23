@@ -15,12 +15,12 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
-    "strictPropertyInitialization":false,
+    "strictPropertyInitialization": false,
     "paths": {
-      "@config":[
+      "@config": [
         "src/config"
       ],
-      "@config/*":[
+      "@config/*": [
         "src/config/*"
       ],
       "@common": [
